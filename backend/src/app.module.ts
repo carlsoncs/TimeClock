@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { EmployeesModule } from './employees/employees.module';
 import { TimeclockModule } from './timeclock/timeclock.module';
 import { ProductionModule } from './production/production.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -29,6 +30,7 @@ import { ProductionModule } from './production/production.module';
       }),
     }),
     EmployeesModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
