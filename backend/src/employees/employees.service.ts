@@ -22,6 +22,11 @@ export class EmployeesService {
     return this.employeeRepository.save(employee);
   }
 
+  async update(id: number, updateData: Partial<Employee>): Promise<Employee> {
+    await this.employeeRepository.update(id, updateData);
+    return this.employeeRepository.findOneBy({ id });
+  }
+
   async remove(id: number): Promise<void> {
     await this.employeeRepository.delete(id);
   }
