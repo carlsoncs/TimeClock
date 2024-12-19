@@ -1,0 +1,29 @@
+/* src/styles.css */
+.table-container {
+    @apply min-h-screen bg-gray-100 p-6;
+  }
+  
+  .table {
+    @apply min-w-full bg-white border border-gray-200 shadow-lg rounded-lg;
+  }
+  
+  .table-header {
+    @apply bg-gray-200 text-left text-sm uppercase text-gray-600;
+  }
+  
+  .table-row-even {
+    @apply bg-gray-50;
+  }
+  
+  .table-row-odd {
+    @apply bg-white;
+  }
+  
+  .table-cell {
+    @apply py-3 px-6;
+  }
+  
+  .table-row-hover:hover {
+    @apply bg-gray-100;
+  }
+  

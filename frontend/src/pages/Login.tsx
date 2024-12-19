@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const LoginPage = () => {
       });
       localStorage.setItem('token', response.data.access_token);
       alert('Login successful');
-      navigate('/landing'); // Redirect to landing page
+      navigate('/dashboard'); // Redirect to landing page
     } catch (err) {
       alert('Invalid credentials');
     }
@@ -48,4 +48,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;
