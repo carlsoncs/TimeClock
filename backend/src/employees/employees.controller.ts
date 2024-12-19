@@ -1,10 +1,20 @@
-import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body, Req } from '@nestjs/common';
 import { EmployeesService } from './employees.service';
 import { Employee } from './employee.entity';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { Request, Response } from 'express';
 
 @Controller('employees')
 export class EmployeesController {
   constructor(private readonly employeesService: EmployeesService) {}
+
+@UseGuards(JwtAuthGuard)
+@Get()
+async getEmployees(@Req() req: Request) {
+  console.log('User:', req.user); // Ensure this logs the authenticated user
+  return this.employeesService.findAll();
+}
 
   @Get()
   findAll(): Promise<Employee[]> {
